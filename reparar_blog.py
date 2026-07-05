@@ -1,0 +1,78 @@
+codigo_perfecto = """---
+title: "El Pulso de la Inflación en el Perú"
+subtitle: "Análisis preliminar de los indicadores del BCRP"
+author: "Real Economy"
+date: "2026-07-04"
+engine: jupyter
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    page-layout: custom # Damos más espacio horizontal para el mega gráfico
+---
+
+## Introducción
+
+Este es el primer artículo automatizado de **Real Economy**. El objetivo de esta sección es monitorear cómo evolucionan los precios utilizando información oficial del Banco Central.
+
+A continuación, se presenta la evolución reciente de la inflación. En este panel interactivo puede visualizar y comparar las cuatro métricas principales. *Puede hacer clic en la leyenda de la derecha para ocultar o mostrar variables.*
+
+## Panel General de Inflación
+
+```{python}
+#| label: grafico-consolidado
+#| warning: false
+#| echo: false
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("datos_web/inflacion.bcr.csv")
+
+# Creamos el gráfico con las 4 variables a la vez
+fig = px.line(df, x='Mes', 
+              y=['Total_Mensual', 'Subyacente_Mensual', 'Total_Interanual', 'Subyacente_Interanual'],
+              title='Evolución del IPC: Total vs. Subyacente (2020 - 2026)',
+              labels={'value': 'Porcentaje (%)', 'Mes': 'Mes'})
+
+# Mapeamos los colores, renombramos e incluimos el color del SOMBREADO (rgba)
+configuracion = {
+    'Total_Mensual': {'nombre': 'Mensual (Total)', 'color': '#3498db', 'sombra': 'rgba(52, 152, 219, 0.15)'},
+    'Subyacente_Mensual': {'nombre': 'Mensual (Subyacente)', 'color': '#2ecc71', 'sombra': 'rgba(46, 204, 113, 0.15)'},
+    'Total_Interanual': {'nombre': 'Interanual (Total)', 'color': '#e74c3c', 'sombra': 'rgba(231, 76, 60, 0.15)'},
+    'Subyacente_Interanual': {'nombre': 'Interanual (Subyacente)', 'color': '#9b59b6', 'sombra': 'rgba(155, 89, 182, 0.15)'}
+}
+
+# Aplicamos los nombres personalizados
+fig.for_each_trace(lambda t: t.update(name=configuracion[t.name]['nombre']))
+
+# Aplicamos los colores y el efecto de sombreado personalizado a cada línea
+for trazo in fig.data:
+    nombre_original = [k for k, v in configuracion.items() if v['nombre'] == trazo.name][0]
+    color_asignado = configuracion[nombre_original]['color']
+    sombra_asignada = configuracion[nombre_original]['sombra']
+    
+    trazo.update(
+        line_color=color_asignado,
+        fill='tozeroy', 
+        fillcolor=sombra_asignada, # <--- ¡Aquí está la magia! Cada línea usa su propio color como sombra
+        mode='lines+markers' 
+    )
+
+# Ajustes de diseño premium (¡Y eliminamos el relleno gris que malograba todo!)
+fig.update_traces(marker=dict(size=4)) 
+fig.update_layout(
+    template='plotly_white', 
+    hovermode='x unified', 
+    legend_title_text='',
+    height=600 # Hacemos el gráfico más alto para acomodar tanta información
+)
+
+fig.show()
+```
+"""
+
+with open("primer_analisis.qmd", "w", encoding="utf-8") as archivo:
+    archivo.write(codigo_perfecto)
+
+print("Python: ¡Archivo primer_analisis.qmd actualizado al Panel Consolidado con áreas sombreadas!")

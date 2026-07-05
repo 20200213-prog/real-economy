@@ -1,0 +1,28 @@
+1. Exclusiones de Python y Entornos
+
+pycache/
+*.py[cod]
+*$py.class
+env/
+.env
+venv/
+.Python
+
+2. Exclusiones de Quarto y VS Code
+
+.quarto/
+_site/
+.vscode/
+.ipynb_checkpoints/
+.DS_Store
+
+3. 🚨 BLOQUEO DE BASES DE DATOS PESADAS (ENAHO) 🚨
+
+datos crudos/
+resultados/
+*.dta
+*.sav
+*.zip
+*.rar
+
+(Nota: La carpeta 'datos_web' SÍ se subirá porque ahí está nuestro CSV del BCRP)

@@ -16,8 +16,8 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Artículos Recientes",
+    "title": "Real Economy",
     "section": "",
-    "text": "El Pulso de la Inflación en el Perú\n\n\nAnálisis preliminar de los indicadores del BCRP\n\n\n\n\n\n\n\n\nJul 4, 2026\n\n\nReal Economy\n\n\n\n\n\nNo matching items"
+    "text": "title: “Últimos Análisis” listing: contents: posts sort: “date desc” type: grid categories: true fields: [date, title, subtitle, author] page-layout: full title-block-banner: “images/portada.jpg”"
   }
 ]

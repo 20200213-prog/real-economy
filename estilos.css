@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+body {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6, .title, .navbar-brand {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    color: #1a252f;
+    letter-spacing: 0.5px;
+}
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 3px solid #b8860b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-brand {
+    font-size: 1.8rem !important;
+    color: #1a252f !important;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link {
+    color: #4a4a4a !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b8860b !important;
+}
+
+.quarto-title-block.quarto-banner {
+    background-position: center;
+    background-size: cover;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.5);
+}
+
+.quarto-title-block.quarto-banner .quarto-title {
+    text-align: center;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.quarto-title-block.quarto-banner h1 {
+    color: white !important;
+    font-size: 3.5rem;
+}

@@ -12,12 +12,5 @@
     "title": "El Pulso de la Inflación en el Perú",
     "section": "Panel General de Inflación",
     "text": "Panel General de Inflación"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Real Economy",
-    "section": "",
-    "text": "title: “Últimos Análisis” listing: contents: posts sort: “date desc” type: grid categories: true fields: [date, title, subtitle, author] page-layout: full title-block-banner: “images/portada.jpg”"
   }
 ]

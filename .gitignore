@@ -19,10 +19,19 @@ _site/
 3. 🚨 BLOQUEO DE BASES DE DATOS PESADAS (ENAHO) 🚨
 
 datos crudos/
-resultados/
+resultados enaho/
 *.dta
 *.sav
 *.zip
 *.rar
+resultados enaho/*.csv
+# Archivos de registro / logs
+*.log
 
+# Archivos de datos o temporales
+*.dta
+*.csv
+.bcrpy_cache/
 (Nota: La carpeta 'datos_web' SÍ se subirá porque ahí está nuestro CSV del BCRP)
+/.quarto/
+**/*.quarto_ipynb
